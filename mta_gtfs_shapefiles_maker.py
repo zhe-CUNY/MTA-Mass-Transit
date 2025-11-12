@@ -278,15 +278,9 @@ def make_rail_stops_shapefiles(path, folder, rail):
             usecols=["stop_id", "stop_name", "stop_lat", "stop_lon"],
         )
 
-        stops = stops.loc[
-            stops["stop_id"].isin(
-                stops.stop_id.astype(str)
-                .str.rstrip("N")
-                .str.rstrip("S")
-                .unique()
-                .tolist()
-            )
-        ]
+        # remove duplicated stations
+        stops["_stripped"] = stops["stop_id"].astype(str).str.rstrip("NS")
+        stops = stops.drop_duplicates(subset=["_stripped"], keep="first").drop(columns=["_stripped"])
 
         # correct coordinates of the station with id='H01'
         stops.loc[stops["stop_id"] == "H01", "stop_lat"] = 40.672086

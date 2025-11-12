@@ -20,9 +20,9 @@ These scripts were originally written to create the [NYC Mass Transit Layers ser
 # How to run
 
 1. Clone the repo
-2. Install required libraries, `conda create --name <env> --file requirements.txt`
+2. Install required libraries, `conda create --name <env> --file requirements.txt` (If that doesn't work try `conda create --name mta-mass geopandas beautifulsoup4 notebook lxml`)
 3. Run `python main.py` or open `jupyter notebook` then open main.ipynb to download the data and create the shapefiles
-
+4. Check `feature_report.txt` after you run main.py
 
 # How to backup env
 
