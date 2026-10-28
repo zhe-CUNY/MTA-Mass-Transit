@@ -24,6 +24,16 @@ These scripts were originally written to create the [NYC Mass Transit Layers ser
 3. Run `python main.py` or open `jupyter notebook` then open main.ipynb to download the data and create the shapefiles
 4. Check `feature_report.txt` after you run main.py
 
+## Using uv
+
+Install git and uv https://docs.astral.sh/uv/getting-started/installation/
+
+```bash
+git clone --depth 1 git@github.com:zhe-CUNY/MTA-Mass-Transit.git
+uv sync
+uv run python main.py
+```
+
 # How to backup env
 
 `conda list --export > requirements.txt`
